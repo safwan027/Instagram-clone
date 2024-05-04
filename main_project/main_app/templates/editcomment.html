@@ -1,0 +1,11 @@
+{% extends 'feedbase.html' %}
+{% block content %}
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <br>
+        <input type="text" name="comment" value="{{c_data.comment}}">
+        <button type="submit">Post</button>
+    </form>
+</body>
+{% endblock %}

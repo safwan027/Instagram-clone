@@ -1,0 +1,57 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/regpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <br><br>
+    <main>
+        <div class="form-div">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <img class="instaLogo" src="{% static 'image/instaLogo.png' %}" alt="logo">
+                <input type="text" class="input" placeholder="Phone number or email" required>
+                <input type="text" class="input" name="name" placeholder="Full Name">
+                <input type="text" class="input" name="username" placeholder="Username">
+                <input type="password" class="input" name="password"  placeholder="Password" required>
+                <input type="text" class="input"  name="confirm" placeholder="Confirm Password">
+                <button class="signup-btn" type="submit">Sign Up</button> 
+                <p id="or">or</p>
+                <a href="#" class="fb-login"><i class='bx bxl-facebook-square'></i>Log in with Facebook</a>
+            </form>
+            <div class="sign-up">
+                <p>Have an account? <a href="{% url 'signin' %}" class="sign-link">Log In</a></p>
+            </div>
+            <div class="get-app">
+                <p>Get the app</p>
+                <div class="store">
+                    <img id="play" src="{% static 'image/playStore.png' %}" alt="">
+                    <img id="microsoft" src="{% static 'image/getMicrosoft.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+    <br><br>
+    <div class="footer">
+        <a class="footer-section" href="#">About</a>
+        <a class="footer-section" href="#">Help</a>
+        <a class="footer-section" href="#">API</a>
+        <a class="footer-section" href="#">Jobs</a>
+        <a class="footer-section" href="#">Privacy</a>
+        <a class="footer-section" href="#">Terms</a>
+        <a class="footer-section" href="#">Locations</a>
+        <br>
+        <a class="footer-section" href="#">Top Accounts</a>
+        <a class="footer-section" href="#">Hashtag</a>
+        <a class="footer-section" href="#">Language</a>
+        <br><br>
+        <span class="footer-section">
+            © 2023 INSTAGRAM FROM FACEBOOK
+        </span>
+    </div>
+    <br><br>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'feedbase.html' %}
+{% block content %}
+<body> 
+
+    {% if profile.image %}
+    <img style="width: 50px; height: 50px;" src="{{profile.image.url}}" alt="">
+    {% else %}
+    <p>nil</p>
+    {% endif %}
+    <br>
+    <b>{{profile.fk_user.username}}</b>
+    <br>
+    {{profile.bio}}
+    <br><br><br> 
+
+  
+    {% for i in view1 %}
+    {% if i.image %}
+    <img style="width: 120px; height:120px" src="{{i.image.url}}" alt="Not found">
+    {% else %}
+    <p>Nil</p>
+    {% endif %}
+    {% endfor %}   
+
+</body>
+{% endblock %}
+
+
+

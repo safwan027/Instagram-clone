@@ -1,0 +1,15 @@
+{% extends 'feedbase.html' %}
+{% block content %}
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Search">
+        <button type="submit">Go</button>
+    </form><br>
+    {% for p in post %}
+    <a href="{% url 'postview' p.id %}"><img style="height: 300px; width: 300px;" src="{{p.image.url}}" alt=""></a>
+    {% endfor %}
+
+    
+</body>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'feedbase.html' %}
+{% block content %}
+
+<body>
+
+{% if profile.image %}
+    <a href="{% url 'storyview' profile.fk_user.username %}"><img style="width: 50px; height: 50px; border-radius: 100%;" src="{{profile.image.url}}" alt="Not found"></a>
+    {% else %}
+    <p>Nil</p>
+{% endif %}
+<br>
+<b>{{profile.fk_user.username}}</b><br>
+<p>{{profile.bio}}</p><br><br>
+
+{%comment%}
+{% if profile.fk_user != request.user %}
+    {% if follow_status == True %}
+        <a href="{% url 'follow_user' username=profile.fk_user.username option=0 %}">Unfollow</a>
+        {% else %} 
+        <a href="{% url 'follow_user' username=profile.fk_user.username option=1 %}">follow</a>
+    {% endif %}
+{% endif %}
+{% endcomment %}
+<br>
+
+{% comment %}
+<a href="{% url 'favorite' profile.favorite.id %}">Save</a>
+{% endcomment %}
+
+
+
+
+
+<b>followers: {{followers_count}}</b><br>
+<b>following: {{following_count}}</b><br>
+<b>Posts: {{posts_count}}</b><br><br>
+
+{% for p in post %}
+{% if p.image %}
+<a href="{% url 'postview' p.id %}"><img style="height:300px; width: 300px;" src="{{p.image.url}}" alt="Not found"></a>
+{% else %}
+<p>Not posted yet</p>
+{% endif %}
+{% endfor %}
+
+
+</body>
+
+{% endblock %}    

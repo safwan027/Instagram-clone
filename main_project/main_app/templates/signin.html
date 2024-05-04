@@ -1,0 +1,65 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/regpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <br><br>
+    <main>
+        <img src="{% static 'image/IG.jpeg' %}" alt="" class="phoneImg">
+        <div class="form-div">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <img class="instaLogo" src="{% static 'image/instaLogo.png' %}" alt="logo">
+                <input type="text" name="username" class="input" placeholder="phone number, username, or email" required>
+                <input type="password" name="password"   class="input" required placeholder="Password">
+                <button type="submit" class="signup-btn">Log in</button>
+                <p id="or">or</p>
+                <a href="#" class="fb-login"><i class='bx bxl-facebook-square'></i>Log in with Facebook</a>
+                {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <p style="color: red;">{{ message|linebreaksbr }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <br>
+                <a href="{% url 'forgotpassword' %}">Forgot Password ?</a>
+                <br>
+            </form>
+            <div class="sign-up">
+                <p>Don't have an account? <a href="{% url 'signup' %}"  type="submit" class="sign-link">Sign up</a></p>
+            </div>
+            <div class="get-app">
+                <p>Get the app</p>
+                <div class="store">
+                    <img id="play" src="{% static 'image/playStore.png' %}" alt="">
+                    <img id="microsoft" src="{% static 'image/getMicrosoft.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+    <br><br>
+    <div class="footer">
+        <a class="footer-section" href="#">About</a>
+        <a class="footer-section" href="#">Help</a>
+        <a class="footer-section" href="#">API</a>
+        <a class="footer-section" href="#">Jobs</a>
+        <a class="footer-section" href="#">Privacy</a>
+        <a class="footer-section" href="#">Terms</a>
+        <a class="footer-section" href="#">Locations</a>
+        <br>
+        <a class="footer-section" href="#">Top Accounts</a>
+        <a class="footer-section" href="#">Hashtag</a>
+        <a class="footer-section" href="#">Language</a>
+        <br><br>
+        <span class="footer-section">
+            © 2023 INSTAGRAM FROM FACEBOOK
+        </span>
+    </div>
+    <br><br>
+</body>
+</html>

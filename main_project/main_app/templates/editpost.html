@@ -1,0 +1,15 @@
+{% extends 'feedbase.html' %}
+{% block content %}
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Post Photo :</label>
+        <input type="file" name="image" value="{{post.fk_user.profile.image.url}}">
+        <br>
+        <label>Caption :</label>
+        <input type="text" name="caption" value=" {{post.caption}}">
+        <br>
+        <button type="submit">Post</button>
+    </form>
+</body>
+{% endblock %}

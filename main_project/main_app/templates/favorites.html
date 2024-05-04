@@ -1,0 +1,16 @@
+{% extends 'feedbase.html' %}
+
+{% block content %}
+<body>
+
+    <b>Saved</b><br>
+    {% for f in fav_post %}
+    {% if f.image %}
+    <a href="{% url 'postview' f.id %}"><img style="height: 300px; width: 300px;" src="{{f.image.url}}" alt="">
+        {% else %}</a>
+    <p>nil</p>
+    {% endif %}
+    {% endfor %}
+ 
+</body>
+{% endblock %} 

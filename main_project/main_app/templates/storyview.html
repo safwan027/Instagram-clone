@@ -1,0 +1,39 @@
+{% extends 'feedbase.html' %}
+{% block content %}
+<body>
+
+
+  
+    
+   
+
+    
+    {% for q in queryset %}
+    <b>{{q.fk_user.username}}</b>
+    {% endfor %}
+
+    {% for i in page_obj %}
+        <img style="height: 500px; width: 400px; display: block; margin-left: auto; margin-right: auto;" src="{{i.image.url}}" alt="">
+        {% if i.fk_user == request.user %}
+        <a href="{% url 'deletestory' i.id %}">Delete</a>
+        {% endif %}
+    {% endfor %}
+
+    <br>
+    {% if page_obj.has_previous %}
+        <a style="position: fixed; top: 50%; left: 40%; transform: translate(-50%, -50%);" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+    {% endif %}
+
+    
+    {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+   
+
+    {% if page_obj.has_next %}
+        <a style="position: fixed; top: 50%; left: 80%; transform: translate(-50%, -50%);" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+    {% endif %}
+ 
+
+
+
+</body>
+{% endblock %}

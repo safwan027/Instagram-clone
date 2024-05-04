@@ -1,0 +1,28 @@
+{% load static %}
+
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<link rel="stylesheet" href="{% static 'css/regpage.css' %}">
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+
+
+<body>
+	
+	<header>
+		<nav class="navbar">
+			<div class="container">
+				<div class="logo">
+					
+				</div>
+			</div>
+		</nav>
+	</header>
+
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
